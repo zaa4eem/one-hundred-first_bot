@@ -1,10 +1,9 @@
 ﻿using Discord;
 using Discord.Commands;
-using Discord.WebSocket;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace DurikBot;
+namespace DurikBot.Modules;
 
 public class PublicModule : ModuleBase<SocketCommandContext>
 {
@@ -19,12 +18,11 @@ public class PublicModule : ModuleBase<SocketCommandContext>
     }
 
     [Command("ping")]
-    [Alias("Discord", "link")]
+    [Alias("pong", "hello")]
     public async Task PingAsync()
     {
         _logger.LogInformation("User {user} used the ping command!", Context.User.Username);
-        await ReplyAsync("Если имеешь желание, заходи на сервер :з");
-        await ReplyAsync("https://discord.gg/AFvfyMd9ef");
+        await ReplyAsync("pong!");
     }
 
     [Command("stop")]
@@ -32,32 +30,6 @@ public class PublicModule : ModuleBase<SocketCommandContext>
     {
         _ = _host.StopAsync();
         return Task.CompletedTask;
-    }
-    [Command("info")]
-    private async Task Info(SocketGuildUser socketGuildUser = null)
-    {
-        if (socketGuildUser == null)
-        {
-            var embed = new EmbedBuilder()
-                .WithColor(Color.Orange)
-                .WithTitle(Context.User.Username)
-                .WithImageUrl(Context.User.GetAvatarUrl())
-                .AddField("User ID:", Context.User.Id, true)
-                .AddField("Created at", Context.User.CreatedAt, true);
-
-            await Context.Channel.SendMessageAsync(embed: embed.Build());
-        }
-        else
-        {
-            var embed = new EmbedBuilder()
-                .WithColor(Color.Orange)
-                .WithTitle(socketGuildUser.Username)
-                .WithImageUrl(socketGuildUser.GetAvatarUrl())
-                .AddField("User ID:", socketGuildUser.Id, true)
-                .AddField("Created at:", socketGuildUser.CreatedAt, true);
-
-            await Context.Channel.SendMessageAsync(embed: embed.Build());
-        }
     }
 
     [Command("log")]

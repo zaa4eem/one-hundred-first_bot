@@ -17,6 +17,6 @@ public class BotStatusService : DiscordClientService
         await Client.WaitForReadyAsync(stoppingToken);
         Logger.LogInformation("Client is ready!");
 
-        await Client.SetActivityAsync( new Game("101"));
+        await Client.SetActivityAsync( new Game("V0.1.4"));
     }
 }

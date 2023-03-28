@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "DurikBot": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "remoteDebugEnabled": false,
+      "nativeDebugging": true,
+      "jsWebView2Debugging": true,
+      "sqlDebugging": true
+    }
+  }
+}
