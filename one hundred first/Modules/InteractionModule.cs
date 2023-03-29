@@ -141,10 +141,7 @@ public class InteractionModule : InteractionModuleBase<SocketInteractionContext>
             "╠<@&1066061830415458324> | Танцор\n" +
             "╠<@&1066061832856547420> | Учёный\n" +
             "╠<@&1065291694007926834> | Мальчик\n" +
-            "╠<@&1065291695102623744> | Девочка\n" +
-            "╠<@&1066061832856547420> | Учёный\n" +
-            "╠<@&1066061832856547420> | Учёный\n" +
-            "╚<@&1066061832856547420> | Учёный\n")
+            "╚<@&1065291695102623744> | Девочка\n")
             .WithImageUrl("https://cdn.discordapp.com/attachments/1090219775126421544/1090530378751676456/image.png");
         await ReplyAsync(embed: embed.Build());
     }
